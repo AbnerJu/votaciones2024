@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conReacciones{
+    width: 100vh;
+    height: 20vh;
+    display: flex;
+    gap: 20px;
+}
+
+.reacciones{
+    width: 200px;
+}
+
+.reacciones:active{
+    transform: scale(1.2);
+}
