@@ -24,7 +24,7 @@ body{
 }
 
 .conDer{
-    background-color: #000;
+    background-color: #fff;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@ body{
 
 .conContenidos{
     text-align: center;
-    width: 70%;
+    width: 100%;
     height: 70%;
     display: flex;
     justify-content: center;
@@ -48,7 +48,7 @@ body{
 }
 
 .inpt1{
-    width: 300px;
+    width: 100%;
     height: 30px;
     margin-top: 20px;
     border-radius: 10px;
@@ -71,16 +71,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../images/5187245.jpg);
     background-size: cover;
     background-position: center;
     border-radius: 20px 0px 0px 20px;
-
-    background-image: url(../images/cara-neutra.png);
-    background-image: url(../images/cara-triste.png);
-    background-image: url(../images/indiferente.png);
-    background-image: url(../images/muy-feliz.png);
-    background-image: url(../images/sonreir.png);
 }
 
 /* .conImagen{

@@ -9,8 +9,8 @@
 <body>
     <div class="conReacciones">
         <img src="./images/cara-triste.png" class="reacciones">
-        <img src="./images/cara-triste.png" class="reacciones">
         <img src="./images/indiferente.png" class="reacciones">
+        <img src="./images/cara-neutra.png" class="reacciones">
         <img src="./images/sonreir.png" class="reacciones">
         <img src="./images/muy-feliz.png" class="reacciones">
  
