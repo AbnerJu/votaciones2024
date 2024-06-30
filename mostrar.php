@@ -7,7 +7,11 @@
 </head>
 <body>
     <h1>Mostrar Estadísticas</h1>
-    
+    <?php
+        session_start();
+        echo $_SESSION['carrera'];
+    ?>
+    <br>
     <button><a href="sis_votacion.php">Sistema de votacion</a></button>
 </body>
 </html>

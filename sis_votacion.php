@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,12 +30,14 @@
     </div>
 
     <div class="conEnviar">
-        <form action="enviar_votaciones.php">
-            <input type="hidden" id="voto" name="voto">
-            <input type="text" id="codigoPersona" name="codigoPersona">
+        <form action="enviar_votaciones.php" method="POST">
+            <input type="hidden" id="voto" name="puntuacion">
+            <input type="text" id="codigoPersona" name="codigoPersona" maxlength="4" autocomplete="off">
             <br>
             <button type="submit" id="enviarVoto">Enviar voto</button>
         </form>
+    </div>
+    <div class="advertencia">
     </div>
 
     <script src="js/reacciones.js"></script>
