@@ -7,13 +7,34 @@
     <title></title>
 </head>
 <body>
+
+    <script>   
+        function insertarValor(valor){
+            document.getElementById("voto").value = valor;
+        }
+    </script>
+
     <div class="conReacciones">
-        <img src="./images/cara-triste.png" class="reacciones" id="triste">
-        <img src="./images/indiferente.png" class="reacciones" id="indiferente">
-        <img src="./images/cara-neutra.png" class="reacciones" id="neutra">
-        <img src="./images/sonreir.png" class="reacciones" id="sonreir">
-        <img src="./images/muy-feliz.png" class="reacciones" id="mFeliz">
- 
+
+            <button onclick="insertarValor(1)">
+            <img src="./images/cara-triste.png" class="reacciones" id="triste"></button>
+
+            <button onclick="insertarValor(2)"> <img src="./images/indiferente.png" class="reacciones" id="indiferente"></button>
+
+            <button onclick="insertarValor(3)"><img src="./images/cara-neutra.png" class="reacciones" id="neutra"></button>
+        
+            <button onclick="insertarValor(4)"><img src="./images/sonreir.png" class="reacciones" id="sonreir"></button>
+        
+            <button onclick="insertarValor(5)"><img src="./images/muy-feliz.png" class="reacciones" id="mFeliz"></button>
+    </div>
+
+    <div class="conEnviar">
+        <form action="enviar_votaciones.php">
+            <input type="hidden" id="voto" name="voto">
+            <input type="text" id="codigoPersona" name="codigoPersona">
+            <br>
+            <button type="submit" id="enviarVoto">Enviar voto</button>
+        </form>
     </div>
 
     <script src="js/reacciones.js"></script>

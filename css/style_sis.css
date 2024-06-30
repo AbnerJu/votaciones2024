@@ -5,8 +5,14 @@
 body{
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+button{
+    border: none;
+    background: none;
 }
 
 .conReacciones{
@@ -14,12 +20,33 @@ body{
     height: 20vh;
     display: flex;
     gap: 20px;
+    width: auto;
+}
+
+.conEnviar{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.conEnviar input{
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.conEnviar button{
+    margin-top: 50px;
+    border: 2px solid;
+    padding: 20px 30px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 .reacciones{
     width: 200px;
+    cursor: pointer;
+    transition: translate 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.reacciones:active{
-    transform: scale(1.2);
+.movimiento{
+    translate: 0px -50px;
 }
