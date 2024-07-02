@@ -50,3 +50,9 @@ button{
 .movimiento{
     translate: 0px -50px;
 }
+
+.codigoPersona{
+    border: none;
+    outline: none;
+    border-radius: 50px;
+}
