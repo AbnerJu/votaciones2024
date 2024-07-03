@@ -34,7 +34,14 @@
             <input type="hidden" id="voto" name="puntuacion">
             <input type="text" id="codigoPersona" name="codigoPersona" maxlength="4" autocomplete="off">
             <br>
-            <button type="submit" id="enviarVoto">Enviar voto</button>
+            <button type="submit" id="enviarVoto">
+                <span class="circulo1"></span>
+                <span class="circulo2"></span>
+                <span class="circulo3"></span>
+                <span class="circulo4"></span>
+                <span class="circulo5"></span>
+                <span class="circulo6">Enviar Voto</span>
+            </button>
         </form>
     </div>
     <div class="advertencia">

@@ -18,4 +18,6 @@
     $consulta= "UPDATE codigos_votaciones SET $carrera = $puntuacion WHERE id_codigo = $codigoPersona";
     mysqli_query($conexion,$consulta) or die ("Error al guardar" . mysqli_error($conexion));
     mysqli_close($conexion);
+
+    header("location:sis_votacion.php");
 ?>
