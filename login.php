@@ -9,11 +9,7 @@
 </head>
 <body>
     <div id = "conPrincipal">
-        <div class="conIzq" id="conInter">
-            <!-- <div class="conImagen"></div> -->
-        </div>
-
-        <div class="conDer" id="conInter">
+    <img src="images/sesion.jpg" id="imgInicio">
             <div class="conContenidos">
                 <h1>¡Bienvenido!</h1>
                 <br>
@@ -25,7 +21,8 @@
                     <input type="submit" value="Ingresar">
                 </form>
             </div>
-        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/mostrarAlertas.js"></script>
 </body>
 </html>
