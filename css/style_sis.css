@@ -1,5 +1,10 @@
 *{
     margin: 0;
+    --voto5:#3dafb7;
+    --voto4:#6fb96a;
+    --voto3:#fbe23d;
+    --voto2:#f4911a;
+    --voto1:#e0435a;
 }
 
 body{
@@ -8,6 +13,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);; */
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 button{
@@ -26,6 +33,14 @@ button{
 .conEnviar{
     margin-top: 100px;
     text-align: center;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .conEnviar input{
@@ -56,6 +71,7 @@ button{
     transition-property: translate box-shadow;
     transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
     transition-duration: 0.5s;
+    height: 10px;
 }
 
 #codigoPersona:focus{
@@ -63,55 +79,25 @@ button{
     box-shadow: 0px 5px;
 }
 
-#enviarVoto{
-    font-weight: bold;
-    color: white;
-    background-color: #171717;
-    padding: 1em 2em;
-    border: none;
-    border-radius: .6rem;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-}
 
-#enviarVoto span:not(:nth-child(6)) {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 30px;
-    width: 30px;
-    background-color: #0c66ed;
-    border-radius: 50%;
-    transition: .6s ease;
+  #enviarVoto {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    width: 60%;
+    border-radius: 30px;
+    color: var(--secondary-color);
+    background: var(--hover-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    font-weight: bold;
+    margin: auto;
+    border: none;
+    text-align: center;
   }
   
-  #enviarVoto span:nth-child(6) {
-    position: relative;
-  }
-  
-  #enviarVoto span:nth-child(1) {
-    transform: translate(-3.3em, -4em);
-  }
-  
-  #enviarVoto span:nth-child(2) {
-    transform: translate(-6em, 1.3em);
-  }
-  
-  #enviarVoto span:nth-child(3) {
-    transform: translate(-.2em, 1.8em);
-  }
-  
-  #enviarVoto span:nth-child(4) {
-    transform: translate(3.5em, 1.4em);
-  }
-  
-  #enviarVoto span:nth-child(5) {
-    transform: translate(3.5em, -3.8em);
-  }
-  
-  #enviarVoto:hover span:not(:nth-child(6)) {
-    transform: translate(-60%, -60%) scale(5);
-    transition: 1s ease;
+  #enviarVoto:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
   }

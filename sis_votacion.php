@@ -13,12 +13,12 @@
         function insertarValor(valor){
             document.getElementById("voto").value = valor;
         }
+
     </script>
 
     <div class="conReacciones">
 
-            <button onclick="insertarValor(1)">
-            <img src="./images/cara-triste.png" class="reacciones" id="triste"></button>
+            <button onclick="insertarValor(1)"><img src="./images/cara-triste.png" class="reacciones" id="triste"></button>
 
             <button onclick="insertarValor(2)"> <img src="./images/indiferente.png" class="reacciones" id="indiferente"></button>
 
@@ -32,15 +32,10 @@
     <div class="conEnviar">
         <form action="enviar_votaciones.php" method="POST">
             <input type="hidden" id="voto" name="puntuacion">
-            <input type="text" id="codigoPersona" name="codigoPersona" maxlength="4" autocomplete="off">
+            <input type="text" id="codigoPersona" name="codigoPersona" maxlength="4" autocomplete="on">
             <br>
             <button type="submit" id="enviarVoto">
-                <span class="circulo1"></span>
-                <span class="circulo2"></span>
-                <span class="circulo3"></span>
-                <span class="circulo4"></span>
-                <span class="circulo5"></span>
-                <span class="circulo6">Enviar Voto</span>
+                Enviar Voto
             </button>
         </form>
     </div>
