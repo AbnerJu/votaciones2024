@@ -1,8 +1,5 @@
-Swal.fire({
-    title: 'Bienvenido!',
-    confirmButtonText: 'Continuar',
-})
 
-customClass:{
-    popup:'popup-clase'
-}
+// Swal.fire({
+//     title: '<strong class="tituloVentana">Bienvenido</strong>',
+//     confirmButtonText: '<strong class="txtBtnVen">Continuar</strong>'
+// });
