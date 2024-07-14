@@ -9,9 +9,7 @@
 <body>
     <header class="encabezado">
         <h1>Estadísticas</h1>
-        <button id="btnVotaciones">
-            <a href="sis_votacion.php" class="texto2btn">Votaciones<a>
-        </button>
+        <a href="sis_votacion.php" class="texto2btn"><button id="btnVotaciones">Votaciones</button><a>
     </header>
 </body>
 </html>
