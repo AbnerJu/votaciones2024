@@ -1,4 +1,4 @@
-let enviarVoto = document.getElementById('enviarVoto');
+let enviar = document.getElementById('enviarVoto');
 enviar.addEventListener('click', ()=>{
 
     (async() =>{
@@ -13,8 +13,9 @@ enviar.addEventListener('click', ()=>{
           if(codigo){
             const formData = new FormData();
             formData.append('codigo', codigo);
+            formData.append('puntuacion', document.getElementById('voto').value);
 
-            fetch('recibir.php', {
+            fetch('enviar_votaciones.php', {
                 method: 'POST',
                 body: formData
             })
