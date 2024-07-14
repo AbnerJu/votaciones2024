@@ -7,7 +7,16 @@ enviar.addEventListener('click', ()=>{
             icon: "info",
             input: "text",
             inputValue: '',
-            showCancelButton: true
+            showCancelButton: true,
+            confirmButtonText:"Enviar",
+            cancelButtonText: "Cancelar",
+            customClass: {
+                title: 'c-titulo',
+                popup: 'c-container',
+                input: 'c-input',
+                confirmButton: 'c-confirm',
+                cancelButton: 'c-cancel'
+            }
           });
 
           if(codigo){

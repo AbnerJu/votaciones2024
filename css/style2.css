@@ -1,5 +1,4 @@
 *{
-    padding: 0;
     margin: 0;
 }
 
@@ -18,7 +17,6 @@ body{
 #conPrincipal{
     width: 40vh;
     height: 60vh;
-    /* background: rgba(255,255,255,.05); */
     background: linear-gradient(to left,#fff,rgba(53, 114, 239,0.1));
     background-color: aliceblue;
     gap: 20px;
@@ -27,9 +25,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-image: url(../images/vackground-com-0F2pC8_DwvM-unsplash.jpg);
-    background-size: cover; */
-    /* backdrop-filter: blur(10px); */
     border-radius: 50px;
     box-shadow: 0 25px 50px rgba(0,0,0,0.40);
     flex-direction: column;
