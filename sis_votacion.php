@@ -30,18 +30,16 @@
     </div>
 
     <div class="conEnviar">
-        <form action="enviar_votaciones.php" method="POST">
+        <!-- <form action="enviar_votaciones.php" method="POST">
             <input type="hidden" id="voto" name="puntuacion">
             <input type="text" id="codigoPersona" name="codigoPersona" maxlength="4" autocomplete="on">
-            <br>
-            <button type="submit" id="enviarVoto">
-                Enviar Voto
-            </button>
-        </form>
+            <br> -->
+            <button id="enviarVoto">Enviar Voto</button>
+        <!-- </form> -->
     </div>
     <div class="advertencia">
     </div>
-
+    <script src="js/swalvotaciones.js"></script>
     <script src="js/reacciones.js"></script>
 </body>
 </html>
