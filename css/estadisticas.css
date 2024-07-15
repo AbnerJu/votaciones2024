@@ -12,6 +12,43 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 20px;
+    background-color: #645bff;
+}
+
+.encabezado h1{
+    flex: 1;
+    text-align: center;
+}
+
+.encabezado a{
+    text-decoration: none;
+}
+
+
+#btnVotaciones{
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    width: 150px;
+    border-radius: 30px;
+    color: var(--secondary-color);
+    background: var(--hover-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+    margin: auto;
+    border: none;
+    text-align: center;
+    padding: 1em 1.8em;
+}
+
+#btnVotaciones:hover{
+    cursor: pointer;
 }
 
 

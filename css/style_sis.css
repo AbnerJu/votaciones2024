@@ -11,10 +11,11 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     /* background:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);; */
     background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transition: all 0.3s ease;
 }
 
 button{
@@ -28,6 +29,7 @@ button{
     display: flex;
     gap: 20px;
     width: auto;
+    margin-top: 30vh;
 }
 
 .conEnviar{
@@ -50,10 +52,8 @@ form{
 
 .conEnviar button{
     margin-top: 50px;
-    border: 2px solid;
     padding: 20px 30px;
     cursor: pointer;
-    border-radius: 10px;
 }
 
 .reacciones{
@@ -79,12 +79,11 @@ form{
     box-shadow: 0px 5px;
 }
 
-
-  #enviarVoto {
+#enviarVoto {
     --primary-color: #645bff;
     --secondary-color: #fff;
     --hover-color: #111;
-    width: 60%;
+    width: 150px;
     border-radius: 30px;
     color: var(--secondary-color);
     background: var(--hover-color);
@@ -92,12 +91,35 @@ form{
     transition: 0.2s background;
     align-items: center;
     font-weight: bold;
+    justify-content: center;
     margin: auto;
     border: none;
     text-align: center;
-  }
+}
   
-  #enviarVoto:hover {
+#enviarVoto:hover {
     background-color: var(--hover-color);
     cursor: pointer;
-  }
+}
+
+/* Custom Class */
+.c-titulo{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.c-container{
+    border-radius: 50px;
+}
+
+.c-input{
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.c-confirm{
+    background-color: #6fb96a;
+}
+
+.c-cancel{
+    background-color: #e0435a;
+}

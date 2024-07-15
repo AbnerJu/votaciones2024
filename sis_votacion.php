@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style_sis.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title></title>
 </head>
 <body>
@@ -30,18 +31,15 @@
     </div>
 
     <div class="conEnviar">
-        <form action="enviar_votaciones.php" method="POST">
+        <!-- <form action="enviar_votaciones.php" method="POST"> -->
             <input type="hidden" id="voto" name="puntuacion">
-            <input type="text" id="codigoPersona" name="codigoPersona" maxlength="4" autocomplete="on">
-            <br>
-            <button type="submit" id="enviarVoto">
-                Enviar Voto
-            </button>
-        </form>
+            <!-- <input type="text" id="codigoPersona" name="codigoPersona" maxlength="4" autocomplete="on"> -->
+            <button id="enviarVoto" type="submit">Enviar Voto</button>
+        <!-- </form> -->
     </div>
     <div class="advertencia">
     </div>
-
+    <script src="js/swalvotaciones.js"></script>
     <script src="js/reacciones.js"></script>
 </body>
 </html>

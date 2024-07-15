@@ -1,4 +1,4 @@
-Swal.fire({
-    title:'Bienvenido',
-    confirmButtonText: 'Continuar'
-});
+// Swal.fire({
+//     title:'Bienvenido',
+//     confirmButtonText: 'Continuar'
+// });

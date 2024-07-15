@@ -13,11 +13,11 @@ if($fila=mysqli_fetch_array($registros)) {
         header("location:mostrar.php");
     }
     else {
-        header("location:login.php?var=1");	
+        header("location:login.php?al=1");	
     }	
 }
 else {
-    header("location:login.php?var=2");
+    header("location:login.php?al=2");
 }
 
 
