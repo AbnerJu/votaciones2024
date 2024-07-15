@@ -1,3 +1,8 @@
+<?php
+    if(isset($_GET['al'])){
+        $al = $_GET['al'];
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style2.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>idealogin</title>
 </head>
 <body>
@@ -31,5 +37,28 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="js/mostrarAlertas.js"></script>
+    <script>
+        let al1 = <?php echo $al?>;
+        if(al1 == 2){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                icon: "error",
+                title: "Datos incorrectos",
+                customClass:{
+                    title:"c-titulo"
+                }
+                });
+        }
+    </script>
 </body>
 </html>
