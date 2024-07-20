@@ -16,20 +16,16 @@
             $puntuacion = $_POST['puntuacion'];
             $carrera = $_SESSION['carrera'];
 
-            $conexion = mysqli_connect("sql206.infinityfree.com", "if0_36938062", "HctaCt5Ekow2", "if0_36938062_votaciones_2024") or die("Error de conexión");
+            $conexion=mysqli_connect("localhost","root","","votaciones_2024") or die ("Error de conexion");
             $consulta= "UPDATE codigos_votaciones SET $carrera = $puntuacion WHERE id_codigo = $codigo";
             mysqli_query($conexion,$consulta) or die ("Error al guardar" . mysqli_error($conexion));
             mysqli_close($conexion);
-            // Aquí puedes realizar las operaciones necesarias con el código
-            // Por ejemplo, puedes guardar el código en una base de datos, realizar alguna operación, etc.
-    
-            // En este ejemplo, simplemente devolvemos una respuesta JSON indicando éxito
+
             $response = array(
                 'success' => true,
                 'message' => 'Código recibido correctamente: ' . $codigo
             );
     
-            // Devolvemos la respuesta en formato JSON
             header('Content-Type: application/json');
             echo json_encode($response);
         } else {
@@ -39,18 +35,16 @@
                 'message' => 'No se recibió el código.'
             );
     
-            // Devolvemos la respuesta en formato JSON
             header('Content-Type: application/json');
             echo json_encode($response);
         }
     } else {
-        // Si la solicitud no es POST, devolvemos un error
+        // Si la solicitud no es POST
         $response = array(
             'success' => false,
             'message' => 'Método no permitido. Se esperaba una solicitud POST.'
         );
     
-        // Devolvemos la respuesta en formato JSON
         header('Content-Type: application/json');
         echo json_encode($response);
     }
