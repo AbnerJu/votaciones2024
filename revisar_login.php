@@ -10,14 +10,14 @@ $registros=mysqli_query($conexion, $consulta) or die("Error de conexión ".mysql
 if($fila=mysqli_fetch_array($registros)) {
     if($fila['estado']==1) {
         $_SESSION['carrera']=$fila['carrera'];
-        header("location:mostrar.php");
+        header("location:index.php");
     }
     else {
-        header("location:login.php?al=1");	
+        header("location:index.php?al=1");	
     }	
 }
 else {
-    header("location:login.php?al=2");
+    header("location:index.php?al=2");
 }
 
 
