@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        $conexion = mysqli_connect("localhost", "root", "", "votaciones_2024") or die("Error de conexión");
+        $conexion = mysqli_connect("sql206.infinityfree.com", "if0_36938062", "HctaCt5Ekow2", "if0_36938062_votaciones_2024") or die("Error de conexión");
 
         $consulta = "SHOW COLUMNS FROM codigos_votaciones";
 

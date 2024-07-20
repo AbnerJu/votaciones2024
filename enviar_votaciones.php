@@ -16,7 +16,7 @@
             $puntuacion = $_POST['puntuacion'];
             $carrera = $_SESSION['carrera'];
 
-            $conexion=mysqli_connect("localhost","root","","votaciones_2024") or die ("Error de conexion");
+            $conexion = mysqli_connect("sql206.infinityfree.com", "if0_36938062", "HctaCt5Ekow2", "if0_36938062_votaciones_2024") or die("Error de conexión");
             $consulta= "UPDATE codigos_votaciones SET $carrera = $puntuacion WHERE id_codigo = $codigo";
             mysqli_query($conexion,$consulta) or die ("Error al guardar" . mysqli_error($conexion));
             mysqli_close($conexion);
