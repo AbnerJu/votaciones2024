@@ -10,7 +10,8 @@ $consulta="SELECT id_usuarios,estado,carrera FROM login WHERE carrera='$usuario'
 $registros=mysqli_query($conexion, $consulta) or die("Error de conexión ".mysqli_error($conexion));
     
 if($fila=mysqli_fetch_array($registros)) {
-    if($fila['estado']==1) {
+    if($fila['estado']==1 || $fila['estado']==2) {
+        $_SESSION['estado']=$fila['estado'];
         $_SESSION['carrera']=$fila['carrera'];
         header("location:mostrar.php");
     }
