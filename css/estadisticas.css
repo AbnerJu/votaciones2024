@@ -24,7 +24,7 @@ body{
     position: relative;
     padding: 20px;
     background: linear-gradient(#a1c4fd,#c2e9fb);
-    z-index: -999;
+    z-index: 1;
 }
 
 .encabezado h1{
@@ -83,7 +83,7 @@ body{
     font-family: 'Lato', sans-serif;
   }
 
-  .sidebar a{
+  .sidebar .aSidebar{
     display: block;
     height: 65px;
     width: 100%;
@@ -95,16 +95,16 @@ body{
     font-family: 'Lato', sans-serif;
     transition: all .5s ease;
   }
-  a.active,a:hover{
+  .aSidebar.active,.aSidebar:hover{
     border-left: 5px solid var(--accent-color);
     color: #fff;
      background: var(--col1);
   }
-  .sidebar a i{
+  .sidebar .aSidebar i{
     font-size: 23px;
     margin-right: 16px;
   }
-  .sidebar a span{
+  .sidebar .aSidebar span{
     letter-spacing: 1px;
     text-transform: uppercase;
   }
@@ -160,13 +160,13 @@ body{
       opacity: 0;
       visibility: hidden;
     }
-    .sidebar a{
+    .sidebar .aSidebar{
       height: 60px;
     }
-    .sidebar a i{
+    .sidebar .aSidebar i{
       margin-left: -10px;
     }
-    a:hover {
+    .aSidebar:hover {
       width: 200px;
       background: inherit;
     }
@@ -176,11 +176,11 @@ body{
     }
   }
   
-  .sidebar > a.active,.sidebar > a:hover:nth-child(even) {
+  .sidebar > .aSidebar.active,.sidebar > a:hover:nth-child(even) {
     --accent-color: #52d6f4;
     --gradient-color: #c1b1f7;
   }
-  .sidebar a.active,.sidebar > a:hover:nth-child(odd) {
+  .sidebar .aSidebar.active,.sidebar > a:hover:nth-child(odd) {
     --accent-color: #c1b1f7;
     --gradient-color: #A890FE;
   }

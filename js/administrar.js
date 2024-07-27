@@ -1,8 +1,17 @@
 let estado = document.getElementById("estadoCarrera").value;
+let btnAdmin = document.getElementById("conHidden");
+let header = document.getElementById("header");
+let btnVotaciones = document.getElementById("btnVotaciones");
 
 console.log(estado)
 
+if(estado == 2){
+    btnVotaciones.style.visibility = "hidden";
+    header.style.zIndex = -999;
+}
+
 if(estado != 2){
-    let btnCarreras = document.getElementById("btnVotaciones");
-    btnCarreras.style.visibility = "hidden";
+    btnAdmin.style.visibility = "hidden";
+    header.style.zIndex = 2;
+    btnAdmin.style.display = "none";
 }
