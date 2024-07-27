@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        $conexion=mysqli_connect("localhost","root","","votaciones_2024") or die ("Error de conexion");
+        include("conexion.php");
 
         $consulta = "SHOW COLUMNS FROM codigos_votaciones";
 
@@ -16,7 +16,6 @@
 
         $columna_fuera = "id_codigo";
     
-
         echo "<div id='conPrincipal'>";
         while($fila=mysqli_fetch_array($registros)){
             if($fila['Field'] !== $columna_fuera){
