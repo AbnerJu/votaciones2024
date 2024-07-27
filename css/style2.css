@@ -7,11 +7,24 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-    /* background-image: url(../images/wave.svg);
-    background-position: center;
-    background-size: cover; */
-    
+    background:linear-gradient(-60deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-size: 400% 400%;
+    animation: mov-back 5s ease infinite;
+}
+
+@keyframes mov-back{
+    0%{
+        background-position: 0% 50%;
+    }
+    30%{
+        background-position: 100% 70%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }
 
 #conPrincipal{
