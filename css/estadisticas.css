@@ -23,8 +23,25 @@ body{
     flex-wrap: wrap;
     position: relative;
     padding: 20px;
-    background: linear-gradient(#a1c4fd,#c2e9fb);
+    background: linear-gradient(-120deg,#a1c4fd,#c2e9fb);
     z-index: 1;
+    background-size: 400% 400%;
+    animation: mov-back 5s ease infinite;
+}
+
+@keyframes mov-back{
+  0%{
+      background-position: 0% 50%;
+  }
+  30%{
+      background-position: 100% 70%;
+  }
+  50%{
+      background-position: 100% 50%;
+  }
+  100%{
+      background-position: 0% 50%;
+  }
 }
 
 .encabezado h1{

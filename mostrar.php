@@ -21,9 +21,6 @@
     </label>
     <div class="sidebar">
       <header>Menu</header>
-      <a href="#" class="active" class="aSidebar">
-        <i class="fas fa-qrcode"></i>
-        <span>Estadísticas</span>
       </a>
       <a href="sis_votacion.php" class="aSidebar">
         <i class="fas fa-link"></i>
