@@ -25,13 +25,15 @@
     $datos1 = ejecutarConsulta($conexion, $consulta1);
     
     
-    $respuesta = array(
-        "consulta5" => $datos5,
-        "consulta4" => $datos4,
-        "consulta3" => $datos3,
-        "consulta2" => $datos2,
-        "consulta1" => $datos1,
-    );
+    // $respuesta = array(
+    //     "consulta5" => $datos5,
+    //     "consulta4" => $datos4,
+    //     "consulta3" => $datos3,
+    //     "consulta2" => $datos2,
+    //     "consulta1" => $datos1,
+    // );
+
+    $respuesta = array($datos5, $datos4, $datos3, $datos2, $datos1);
 
     $datosGraficos = json_encode($respuesta);
 
