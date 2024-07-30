@@ -121,6 +121,8 @@
         //     }
         // })
 
+        setInterval("location.reload()",6000);
+
     </script>
 
  
