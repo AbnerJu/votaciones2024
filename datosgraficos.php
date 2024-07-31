@@ -26,6 +26,8 @@
     $datos3 = ejecutarConsulta($conexion, $consulta3);
     $datos2 = ejecutarConsulta($conexion, $consulta2);
     $datos1 = ejecutarConsulta($conexion, $consulta1);
+
+    $datosTotal = $datos5 + $datos4 + $datos3 + $datos2 + $datos1;
     
     
     // $respuesta = array(

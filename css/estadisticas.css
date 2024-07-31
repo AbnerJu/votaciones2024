@@ -233,5 +233,18 @@ p {
   padding: 10px;
 }
 
+.daEstadistica{
+  margin: 20px;
+}
 
+.numVotos{
+  color: rgb(36, 113, 201);
+}
 
+.canva1{
+  margin: 20px;
+}
+
+.canvaPie{
+  width: 50px;
+}

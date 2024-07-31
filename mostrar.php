@@ -41,41 +41,71 @@
         <a href="sis_votacion.php" class="texto2btn"><button id="btnVotaciones">Votaciones</button><a>
     </header> -->
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li> -->
-        <li class="nav-item dropdown" id="dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Acciones
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="mostrar_carreras.php">Carreras</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> -->
+            <li class="nav-item dropdown" id="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Acciones
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="mostrar_carreras.php">Carreras</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
-      <div class="d-flex flex-grow-1 justify-content-center">
-         <a class="navbar-brand text-center fs-2" href="mostrar.php">Estadísticas</a>
+          <div class="d-flex flex-grow-1 justify-content-center">
+            <a class="navbar-brand text-center fs-2" href="mostrar.php">Estadísticas</a>
+          </div>
+            <a href="sis_votacion.php" class="btn btn-dark btn-custom">Votaciones</a>
+        </div>
       </div>
-        <a href="sis_votacion.php" class="btn btn-dark btn-custom">Votaciones</a>
-    </div>
-  </div>
-</nav>
+    </nav>
 
-    <canvas id="myChart" width="50" height="20"></canvas>
-    <canvas id="myChart2" width="50" height="50"></canvas>
+    <div class = "daEstadistica card">
+      <h1 class = "mx-auto">Votos totales</h1>
+      <h2 class = "numVotos" ><?php echo $datosTotal;?></h2>
+    </div>
+
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+        <div class = "card canva1">
+          <canvas id="myChart" width="20" height="7"></canvas>
+        </div>
+        </div>
+        <div class="carousel-item">
+          <div class = "card canva1" id="canvaPie">
+            <canvas id="myChart2" width="10" height="10"></canvas>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class = "card canva1" id="canvaLine">
+            <canvas id="myChart3" width="20" height="7"></canvas>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
     
     <script>
         function crearCadena(json){
@@ -99,10 +129,24 @@
         new Chart(ctxBar, {
         type: 'bar',
         data: {
-            labels: ['5', '4', '3', '2', '1'],
+            labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
             datasets: [{
-            label: '# of Votes',
+            label: 'Numero de votos',
             data: datosGraficos,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor:[
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)'
+            ],
             borderWidth: 1
             }]
         },
@@ -115,46 +159,72 @@
         }
         });
 
-        // const ctxPolar = document.getElementById('myChart2');
+        const ctxPie = document.getElementById('myChart2');
+        new Chart(ctxPie,{
+          type: 'doughnut',
+          data: {
+            labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
+            datasets: [{
+            label: 'Numero de votos',
+            data: datosGraficos,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor:[
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)'
+            ],
+            borderWidth: 1,
+            hoverOffset: 4
+            }]
+        },
+        options:{
+          responsive: true,
+          aspectRatio: 3
+        }
+          
+        });
 
-        // new Chart(ctxPolar,{
-        //     type: 'polarArea',
-        //     data: {
-        //         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
-        //         datasets: [{
-        //             label: '# of Votes',
-        //             data: datosGraficos,
-        //             backgroundColor: [
-        //             'rgba(255, 99, 132, 0.2)',
-        //             'rgba(54, 162, 235, 0.2)',
-        //             'rgba(255, 206, 86, 0.2)',
-        //             'rgba(75, 192, 192, 0.2)',
-        //             'rgba(153, 102, 255, 0.2)',
-        //             ],
-        //             borderColor: [
-        //             'rgba(255, 99, 132, 1)',
-        //             'rgba(54, 162, 235, 1)',
-        //             'rgba(255, 206, 86, 1)',
-        //             'rgba(75, 192, 192, 1)',
-        //             'rgba(153, 102, 255, 1)',
-        //             ],
-        //             borderWidth: 1
-        //         }]
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         plugins: {
-        //         legend: {
-        //             position: 'top',
-        //         },
-        //         title: {
-        //             display: true,
-        //             text: 'Chart.js Polar Area Chart'
-        //         }
-        //         }
-        //     }
-        // })
-
+        const ctxLine = document.getElementById('myChart3');
+        new Chart(ctxLine,{
+          type: 'line',
+          data: {
+            labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
+            datasets: [{
+            label: 'Numero de votos',
+            data: datosGraficos,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor:[
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)'
+            ],
+            borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+        });
         // setInterval("location.reload()",6000);
 
     </script>
