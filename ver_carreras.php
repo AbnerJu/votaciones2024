@@ -1,6 +1,58 @@
 <?php
     session_start();
-    include("datosgraficos.php");
+    include("conexion.php");
+
+    $carrera = $_GET['val'];
+
+
+    function ejecutarConsulta($conexion, $consulta) {
+        $resultados = mysqli_query($conexion, $consulta) or die("Error de conexión: " . mysqli_error($conexion));
+        $datos = array();
+    
+        while($fila = mysqli_fetch_array($resultados)) {
+            $datos[] = $fila[0];
+        }
+    
+        return $datos[0];
+    }
+
+    $consulta4="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=4";
+    $consulta5="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=5";
+    $consulta3="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=3";
+    $consulta2="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=2";
+    $consulta1="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=1";
+
+    $datos5 = ejecutarConsulta($conexion, $consulta5);
+    $datos4 = ejecutarConsulta($conexion, $consulta4);
+    $datos3 = ejecutarConsulta($conexion, $consulta3);
+    $datos2 = ejecutarConsulta($conexion, $consulta2);
+    $datos1 = ejecutarConsulta($conexion, $consulta1);
+
+    $datosTotal = $datos5 + $datos4 + $datos3 + $datos2 + $datos1;
+    
+    
+    // $respuesta = array(
+    //     "consulta5" => $datos5,
+    //     "consulta4" => $datos4,
+    //     "consulta3" => $datos3,
+    //     "consulta2" => $datos2,
+    //     "consulta1" => $datos1,
+    // );
+
+    $respuesta = array($datos5, $datos4, $datos3, $datos2, $datos1);
+
+    $datosGraficos = json_encode($respuesta);
+
+    // $datos4 = array();
+
+    // while($fila=mysqli_fetch_array($registros)){
+        
+    //         $datos4[] = $fila['$carrera'];
+    // }
+
+    // $datos4 = json_encode($datos4);
+
+    mysqli_close($conexion);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,29 +75,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <a class="nav-link active" aria-current="page" href="mostrar_carreras.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg></a>
             <!-- <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li> -->
-            <li class="nav-item dropdown" id="dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Acciones
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="mostrar_carreras.php">Carreras</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
           </ul>
           <div class="d-flex flex-grow-1 justify-content-center">
-            <a class="navbar-brand text-center fs-2" href="mostrar.php">Estadísticas</a>
-          </div>
-            <a href="sis_votacion.php" class="btn btn-dark btn-custom">Votaciones</a>
-        </div>
+            <a class="navbar-brand text-center fs-2" href="mostrar.php"><?php echo strtoupper($carrera);?></a>
       </div>
     </nav>
 

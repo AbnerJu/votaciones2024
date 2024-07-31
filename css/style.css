@@ -5,11 +5,8 @@
 
 :root{
     --background: #f2f2f2;
+    --col2:#c2e9fb;
     
-}
-
-body{
-    background-color: var(--background);
 }
 
 #conPrincipal{
@@ -29,15 +26,40 @@ body{
     border-radius: 5%;
     font-size: 20px;
     font-weight: 500;
-    background-color: #fff;
+    background: linear-gradient(-120deg,#a1c4fd,#c2e9fb,#f2f2f2);
     transition-property: transform box-shadow;
     transition-duration: 1.5s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     transition-delay: 0.1s;
+    background-size: 400% 400%;
+    animation: mov-back 5s ease infinite;
 }
+
+@keyframes mov-back{
+    0%{
+        background-position: 0% 50%;
+    }
+    30%{
+        background-position: 100% 70%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+  }
 
 #conCards:hover{
     transform: scale(1.1);
     cursor: pointer;
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+}
+
+.navbar{
+    background: linear-gradient(-120deg,#a1c4fd,#c2e9fb);
+}
+
+a{
+    text-decoration: none;
 }
