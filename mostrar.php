@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("datosgraficos.php");
+    // include("datosgraficos.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +51,7 @@
 
     <div class = "daEstadistica card">
       <h1 class = "mx-auto">Votos totales</h1>
-      <h2 class = "numVotos" ><?php echo $datosTotal;?></h2>
+      <h2 class = "numVotos" id="numVotos"></h2>
     </div>
 
     <div id="carouselExample" class="carousel slide">
@@ -60,11 +60,15 @@
         <div class = "card canva1">
           <canvas id="myChart" width="20" height="7"></canvas>
         </div>
+        <div class = "card canva1" id="canvaRadar">
+            <canvas id="myChart4" width="10" height="10"></canvas>
+          </div>
         </div>
         <div class="carousel-item">
           <div class = "card canva1" id="canvaPie">
             <canvas id="myChart2" width="10" height="10"></canvas>
           </div>
+
         </div>
         <div class="carousel-item">
           <div class = "card canva1" id="canvaLine">
@@ -83,124 +87,204 @@
     </div>
     
     <script>
-        function crearCadena(json){
-            var parsed = JSON.parse(json);
-            var arr = [];
-            for(var x in parsed){
-                arr.push(parsed[x]);
-            }
-            return arr;
-        }
+        // function crearCadena(json){
+        //     var parsed = JSON.parse(json);
+        //     var arr = [];
+        //     for(var x in parsed){
+        //         arr.push(parsed[x]);
+        //     }
+        //     return arr;
+        // }
 
-        datosGraficos = crearCadena('<?php echo $datosGraficos?>');
+        // datosGraficos = crearCadena('');
     </script>
 
     <script>
+      
 
-        console.log(datosGraficos);
+      let barChart, pieChart, lineChart, radarChart;
 
-        const ctxBar = document.getElementById('myChart');
+      function actualizarGraficos() {
+          fetch('datosgraficos.php')
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  // Actualizar el número total de votos
+                  const numVotosElement = document.getElementById('numVotos');
+                  if (numVotosElement) {
+                      numVotosElement.textContent = data.total;
+                  } else {
+                      console.error('Elemento con id="numVotos" no encontrado.');
+                  }
 
-        new Chart(ctxBar, {
-        type: 'bar',
-        data: {
-            labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
-            datasets: [{
-            label: 'Numero de votos',
-            data: datosGraficos,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(54, 162, 235, 0.2)'
-            ],
-            borderColor:[
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
-              'rgb(75, 192, 192)',
-              'rgb(54, 162, 235)'
-            ],
-            borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-            y: {
-                beginAtZero: true
-            }
-            }
-        }
-        });
+                  // Actualizar gráficos
+                  actualizarGraficoBarra(data.votos);
+                  actualizarGraficoDoughnut(data.votos);
+                  actualizarGraficoLinea(data.votos);
+                  actualizarGraficoRadar(data.votos);
+              })
+              .catch(error => {
+                  console.error('Error al actualizar gráficos:', error);
+              });
+      }
 
-        const ctxPie = document.getElementById('myChart2');
-        new Chart(ctxPie,{
-          type: 'doughnut',
-          data: {
-            labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
-            datasets: [{
-            label: 'Numero de votos',
-            data: datosGraficos,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(54, 162, 235, 0.2)'
-            ],
-            borderColor:[
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
-              'rgb(75, 192, 192)',
-              'rgb(54, 162, 235)'
-            ],
-            borderWidth: 1,
-            hoverOffset: 4
-            }]
-        },
-        options:{
-          responsive: true,
-          aspectRatio: 3
-        }
-          
-        });
+      function actualizarGraficoBarra(votos) {
+          const ctxBar = document.getElementById('myChart').getContext('2d');
+          if (!barChart) {
+              barChart = new Chart(ctxBar, {
+                  type: 'bar',
+                  data: {
+                      labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
+                      datasets: [{
+                          label: 'Número de votos',
+                          data: votos,
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(255, 159, 64, 0.2)',
+                              'rgba(255, 205, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(54, 162, 235, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgb(255, 99, 132)',
+                              'rgb(255, 159, 64)',
+                              'rgb(255, 205, 86)',
+                              'rgb(75, 192, 192)',
+                              'rgb(54, 162, 235)'
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      scales: {
+                          y: {
+                              beginAtZero: true
+                          }
+                      }
+                  }
+              });
+          } else {
+              // Actualiza los datos y vuelve a renderizar el gráfico
+              barChart.data.datasets[0].data = votos;
+              barChart.update();
+          }
+      }
 
-        const ctxLine = document.getElementById('myChart3');
-        new Chart(ctxLine,{
-          type: 'line',
-          data: {
-            labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
-            datasets: [{
-            label: 'Numero de votos',
-            data: datosGraficos,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-              'rgba(255, 205, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(54, 162, 235, 0.2)'
-            ],
-            borderColor:[
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
-              'rgb(75, 192, 192)',
-              'rgb(54, 162, 235)'
-            ],
-            borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-            y: {
-                beginAtZero: true
-            }
-            }
-        }
-        });
-        // setInterval("location.reload()",6000);
+      function actualizarGraficoDoughnut(votos) {
+          const ctxPie = document.getElementById('myChart2').getContext('2d');
+          if (!pieChart) {
+              pieChart = new Chart(ctxPie, {
+                  type: 'doughnut',
+                  data: {
+                      labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
+                      datasets: [{
+                          label: 'Número de votos',
+                          data: votos,
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(255, 159, 64, 0.2)',
+                              'rgba(255, 205, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(54, 162, 235, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgb(255, 99, 132)',
+                              'rgb(255, 159, 64)',
+                              'rgb(255, 205, 86)',
+                              'rgb(75, 192, 192)',
+                              'rgb(54, 162, 235)'
+                          ],
+                          borderWidth: 1,
+                          hoverOffset: 4
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                      aspectRatio: 3
+                  }
+              });
+          } else {
+              // Actualiza los datos y vuelve a renderizar el gráfico
+              pieChart.data.datasets[0].data = votos;
+              pieChart.update();
+          }
+      }
+
+      function actualizarGraficoLinea(votos) {
+          const ctxLine = document.getElementById('myChart3').getContext('2d');
+          if (!lineChart) {
+              lineChart = new Chart(ctxLine, {
+                  type: 'line',
+                  data: {
+                      labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
+                      datasets: [{
+                          label: 'Número de votos',
+                          data: votos,
+                          backgroundColor: [
+                              'rgba(255, 99, 132, 0.2)',
+                              'rgba(255, 159, 64, 0.2)',
+                              'rgba(255, 205, 86, 0.2)',
+                              'rgba(75, 192, 192, 0.2)',
+                              'rgba(54, 162, 235, 0.2)'
+                          ],
+                          borderColor: [
+                              'rgb(255, 99, 132)',
+                              'rgb(255, 159, 64)',
+                              'rgb(255, 205, 86)',
+                              'rgb(75, 192, 192)',
+                              'rgb(54, 162, 235)'
+                          ],
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      scales: {
+                          y: {
+                              beginAtZero: true
+                          }
+                      }
+                  }
+              });
+          } else {
+              // Actualiza los datos y vuelve a renderizar el gráfico
+              lineChart.data.datasets[0].data = votos;
+              lineChart.update();
+          }
+      }
+
+      function actualizarGraficoRadar(votos) {
+          const ctxRadar = document.getElementById('myChart4').getContext('2d');
+          if (!radarChart) {
+              radarChart = new Chart(ctxRadar, {
+                  type: 'radar',
+                  data: {
+                      labels: ['Muy Bien', 'Bien', 'Regular', 'Mal', 'Muy mal'],
+                      datasets: [{
+                          label: 'Número de votos',
+                          data: votos,
+                          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                          borderColor: 'rgb(255, 99, 132)',
+                          pointHoverBorderColor: 'rgb(255, 99, 132)'
+                      }]
+                  },
+                  options: {
+                    responsive: true,
+                    aspectRatio: 3
+                  }
+              });
+          } else {
+              // Actualiza los datos y vuelve a renderizar el gráfico
+              radarChart.data.datasets[0].data = votos;
+              radarChart.update();
+          }
+      }
+
+      document.addEventListener('DOMContentLoaded', actualizarGraficos);
+      setInterval(actualizarGraficos, 500);
 
     </script>
 

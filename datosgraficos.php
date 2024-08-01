@@ -1,6 +1,8 @@
 <?php
     include("conexion.php");
 
+    session_start();
+
     $carrera = $_SESSION ['carrera'];
 
 
@@ -38,9 +40,17 @@
     //     "consulta1" => $datos1,
     // );
 
-    $respuesta = array($datos5, $datos4, $datos3, $datos2, $datos1);
+    // $respuesta = array($datos5, $datos4, $datos3, $datos2, $datos1);
 
-    $datosGraficos = json_encode($respuesta);
+    // $datosGraficos = json_encode($respuesta);
+
+    $respuesta = [
+        'total' => $datosTotal,
+        'votos' => [$datos5[0], $datos4[0], $datos3[0], $datos2[0], $datos1[0]]
+    ];
+
+    echo json_encode($respuesta);
+    header('Content-Type: application/json');
 
     // $datos4 = array();
 
