@@ -1,8 +1,8 @@
 <?php
+    session_start();
     include("conexion.php");
 
-    $carrera = $_GET['val'];
-    echo $carrera;
+    $carrera2 = $_SESSION['vercarrera'];
 
     function ejecutarConsulta($conexion, $consulta) {
         $resultados = mysqli_query($conexion, $consulta) or die("Error de conexión: " . mysqli_error($conexion));
@@ -15,11 +15,11 @@
         return $datos[0];
     }
 
-    $consulta4="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=4";
-    $consulta5="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=5";
-    $consulta3="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=3";
-    $consulta2="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=2";
-    $consulta1="SELECT COUNT($carrera) FROM codigos_votaciones WHERE $carrera=1";
+    $consulta4="SELECT COUNT($carrera2) FROM codigos_votaciones WHERE $carrera2=4";
+    $consulta5="SELECT COUNT($carrera2) FROM codigos_votaciones WHERE $carrera2=5";
+    $consulta3="SELECT COUNT($carrera2) FROM codigos_votaciones WHERE $carrera2=3";
+    $consulta2="SELECT COUNT($carrera2) FROM codigos_votaciones WHERE $carrera2=2";
+    $consulta1="SELECT COUNT($carrera2) FROM codigos_votaciones WHERE $carrera2=1";
 
     $datos5 = ejecutarConsulta($conexion, $consulta5);
     $datos4 = ejecutarConsulta($conexion, $consulta4);
@@ -28,6 +28,19 @@
     $datos1 = ejecutarConsulta($conexion, $consulta1);
 
     $datosTotal = $datos5 + $datos4 + $datos3 + $datos2 + $datos1;
+    
+    
+    // $respuesta = array(
+    //     "consulta5" => $datos5,
+    //     "consulta4" => $datos4,
+    //     "consulta3" => $datos3,
+    //     "consulta2" => $datos2,
+    //     "consulta1" => $datos1,
+    // );
+
+    // $respuesta = array($datos5, $datos4, $datos3, $datos2, $datos1);
+
+    // $datosGraficos = json_encode($respuesta);
 
     $respuesta = [
         'total' => $datosTotal,
@@ -36,7 +49,15 @@
 
     echo json_encode($respuesta);
     header('Content-Type: application/json');
-    header('location:ver_carreras.php?val='. $carrera);
+
+    // $datos4 = array();
+
+    // while($fila=mysqli_fetch_array($registros)){
+        
+    //         $datos4[] = $fila['$carrera2'];
+    // }
+
+    // $datos4 = json_encode($datos4);
 
     mysqli_close($conexion);
 ?>

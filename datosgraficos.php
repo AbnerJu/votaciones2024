@@ -30,19 +30,6 @@
     $datos1 = ejecutarConsulta($conexion, $consulta1);
 
     $datosTotal = $datos5 + $datos4 + $datos3 + $datos2 + $datos1;
-    
-    
-    // $respuesta = array(
-    //     "consulta5" => $datos5,
-    //     "consulta4" => $datos4,
-    //     "consulta3" => $datos3,
-    //     "consulta2" => $datos2,
-    //     "consulta1" => $datos1,
-    // );
-
-    // $respuesta = array($datos5, $datos4, $datos3, $datos2, $datos1);
-
-    // $datosGraficos = json_encode($respuesta);
 
     $respuesta = [
         'total' => $datosTotal,
@@ -51,15 +38,6 @@
 
     echo json_encode($respuesta);
     header('Content-Type: application/json');
-
-    // $datos4 = array();
-
-    // while($fila=mysqli_fetch_array($registros)){
-        
-    //         $datos4[] = $fila['$carrera'];
-    // }
-
-    // $datos4 = json_encode($datos4);
 
     mysqli_close($conexion);
 ?>
