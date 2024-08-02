@@ -53,16 +53,15 @@
       <h1 class = "mx-auto">Votos totales</h1>
       <h2 class = "numVotos" id="numVotos"></h2>
     </div>
-
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-        <div class = "card canva1">
-          <canvas id="myChart" width="20" height="7"></canvas>
+        <div class="carousel-item active" id = "carro1">
+        <div class = "card canva1" id= canva1>
+          <canvas id="myChart"></canvas>
         </div>
-        <div class = "card canva1" id="canvaRadar">
-            <canvas id="myChart4" width="10" height="10"></canvas>
-          </div>
+        <div class = "card canva1" id="canva1">
+            <canvas id="myChart4"></canvas>
+        </div>
         </div>
         <div class="carousel-item">
           <div class = "card canva1" id="canvaPie">
@@ -273,7 +272,7 @@
                   },
                   options: {
                     responsive: true,
-                    aspectRatio: 3
+                    aspectRatio: 2
                   }
               });
           } else {

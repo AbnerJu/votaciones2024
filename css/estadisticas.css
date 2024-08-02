@@ -120,3 +120,12 @@ p {
 .canvaPie{
   width: 50px;
 }
+
+#canva1{
+  width: 50vw;  
+}
+
+#carro1{
+  display: flex;
+  flex-direction: row;
+}
