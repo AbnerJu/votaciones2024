@@ -46,10 +46,48 @@
     if ($fila['Field'] !== $columna_fuera) {
 
       $respuesta = $fila['Field'];
-      echo "<a class='card' id = 'conCards' href='ver_carreras.php?val=$respuesta'>" . strtoupper($respuesta) . "</a>";
+      $consulta1 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=1";
+      $consulta2 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=2";
+      $consulta3 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=3";
+      $consulta4 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=4";
+      $consulta5 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=5";
+
+      $datos1 = ejecutarConsulta($conexion, $consulta1);
+      $datos2 = ejecutarConsulta($conexion, $consulta2);
+      $datos3 = ejecutarConsulta($conexion, $consulta3);
+      $datos4 = ejecutarConsulta($conexion, $consulta4);
+      $datos5 = ejecutarConsulta($conexion, $consulta5);
+
+      // Calcular el total de votos
+      $datosTotal = $datos1 + $datos2 + $datos3 + $datos4 + $datos5;
+      $datoMeGusta = $datos4 + $datos4;
+      $datoNoMeGusta = $datos1 + $datos2 + $datos3;
+
+      echo "<a class='card' id = 'conCards' href='ver_carreras.php?val=$respuesta'><div class='con-titulo'>" . strtoupper($respuesta) . "
+      </div><div class='con-total'>
+        Total de reacciones :  
+        <div class='num-total'>$datosTotal</div>
+      </div>
+      <div class='principal-reaccion'>
+        <div class='con-reaccion me-gusta'><img class='reaccion' src='images/me-gusta.png'>$datoMeGusta</div>
+        <div class='con-reaccion no-me-gusta'><img class='reaccion' src='images/no-me-gusta.png'>$datoNoMeGusta</div>
+      </div>
+      </a>";
     }
   }
   echo "</div>";
+
+  function ejecutarConsulta($conexion, $consulta)
+  {
+    $resultados = mysqli_query($conexion, $consulta) or die("Error de conexión: " . mysqli_error($conexion));
+    $datos = array();
+
+    while ($fila = mysqli_fetch_array($resultados)) {
+      $datos[] = $fila[0];
+    }
+
+    return $datos[0];
+  }
 
   mysqli_close($conexion);
   ?>
@@ -60,7 +98,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
-
 </body>
 
 </html>

@@ -11,28 +11,37 @@
 
 #conPrincipal{
     display: flex;
-
     justify-content: space-evenly;
     margin-top: 200px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-#conCards{
-    width: 200px;
-    height: 300px;
+.card{
+    width: 300px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5%;
     font-size: 20px;
     font-weight: 500;
-    background: linear-gradient(-120deg,#a1c4fd,#c2e9fb,#f2f2f2);
+    background: #fff;
     transition-property: transform box-shadow;
     transition-duration: 1.5s;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 0.7);
     transition-delay: 0.1s;
     background-size: 400% 400%;
-    animation: mov-back 5s ease infinite;
+    position: relative;
+    gap: 10px;
+    border: 1px solid #008bf8;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
 }
 
 @keyframes mov-back{
@@ -48,18 +57,63 @@
     100%{
         background-position: 0% 50%;
     }
-  }
-
-#conCards:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
 }
 
 .navbar{
     background: linear-gradient(-120deg,#a1c4fd,#c2e9fb);
+    padding: 20px;
 }
 
 a{
     text-decoration: none;
+}
+
+.con-titulo{
+    text-align: left;
+    width: 80%;
+    
+
+}
+
+.reaccion{
+    width: 30px;
+    filter: invert(1);
+}
+
+.principal-reaccion{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.con-reaccion{
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background-color: black;
+    gap: 5px;
+    padding: 5px;
+}
+
+.con-total{
+    text-align: center;
+    font-size: 1rem;
+    display: flex;
+}
+
+.num-total{
+    color: #008bf8;
+}
+
+.me-gusta{
+    color: #fff;
+}
+
+.no-me-gusta{
+    color: #fff;
 }
