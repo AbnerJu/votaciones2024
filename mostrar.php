@@ -35,7 +35,6 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="mostrar_carreras.php">Carreras</a></li>
-                <li><a class="dropdown-item" href="#">Comparar</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
@@ -48,7 +47,6 @@
         </div>
       </div>
     </nav>
-
     <div class = "daEstadistica card">
       <h1 class = "mx-auto">Votos totales</h1>
       <h2 class = "numVotos" id="numVotos"></h2>
@@ -84,19 +82,6 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    
-    <script>
-        // function crearCadena(json){
-        //     var parsed = JSON.parse(json);
-        //     var arr = [];
-        //     for(var x in parsed){
-        //         arr.push(parsed[x]);
-        //     }
-        //     return arr;
-        // }
-
-        // datosGraficos = crearCadena('');
-    </script>
 
     <script>
       

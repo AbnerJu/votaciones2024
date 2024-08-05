@@ -1,3 +1,6 @@
+<?php
+  $datosGlobal = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +35,11 @@
           <a class="navbar-brand text-center fs-2" href="mostrar_carreras.php">Carreras</a>
         </div>
   </nav>
+
+  <div class = "daEstadistica card-body">
+      <h1 class = "mx-auto">Votos del evento</h1>
+      <h2 class = "numVotos" id="numVotos"></h2>
+  </div>
   <?php
   include ("conexion.php");
 
@@ -46,6 +54,7 @@
     if ($fila['Field'] !== $columna_fuera) {
 
       $respuesta = $fila['Field'];
+
       $consulta1 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=1";
       $consulta2 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=2";
       $consulta3 = "SELECT COUNT($respuesta) FROM codigos_votaciones WHERE $respuesta=3";
@@ -60,8 +69,9 @@
 
       // Calcular el total de votos
       $datosTotal = $datos1 + $datos2 + $datos3 + $datos4 + $datos5;
-      $datoMeGusta = $datos4 + $datos4;
+      $datoMeGusta = $datos4 + $datos5;
       $datoNoMeGusta = $datos1 + $datos2 + $datos3;
+      $datosGlobal += $datosTotal; 
 
       echo "<a class='card' id = 'conCards' href='ver_carreras.php?val=$respuesta'><div class='con-titulo'>" . strtoupper($respuesta) . "
       </div><div class='con-total'>
@@ -88,9 +98,17 @@
 
     return $datos[0];
   }
-
   mysqli_close($conexion);
   ?>
+
+  <input type="hidden" value="<?php echo $datosGlobal;?>" id="datosGlobal">
+
+  <script>
+    let datosGlobal =document.getElementById('datosGlobal').value;
+    const numVotosElement = document.getElementById('numVotos');
+    numVotosElement.textContent = datosGlobal;
+  </script>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

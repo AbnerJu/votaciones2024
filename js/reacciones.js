@@ -31,11 +31,11 @@ neutra.addEventListener('click',()=>{{
 }})
 
 sonreir.addEventListener('click',()=>{{
-    fondo.style.background="#6fb96a";
+    fondo.style.background="#3dafb7";
 }})
 
 mFeliz.addEventListener('click',()=>{{
-    fondo.style.background="#3dafb7";
+    fondo.style.background="#6fb96a";
 }})
 
 // triste.addEventListener('click',funTriste);

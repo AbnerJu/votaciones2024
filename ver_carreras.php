@@ -43,12 +43,12 @@
 
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-        <div class = "card canva1">
-          <canvas id="myChart" width="20" height="7"></canvas>
+        <div class="carousel-item active" id = "carro1">
+        <div class = "card canva1" id="canva1">
+          <canvas id="myChart"></canvas>
         </div>
-        <div class = "card canva1" id="canvaRadar">
-            <canvas id="myChart4" width="10" height="10"></canvas>
+        <div class = "card canva1" id="canva1">
+            <canvas id="myChart4"></canvas>
           </div>
         </div>
         <div class="carousel-item">
@@ -72,19 +72,6 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    
-    <script>
-        // function crearCadena(json){
-        //     var parsed = JSON.parse(json);
-        //     var arr = [];
-        //     for(var x in parsed){
-        //         arr.push(parsed[x]);
-        //     }
-        //     return arr;
-        // }
-
-        // datosGraficos = crearCadena('');
-    </script>
 
     <script>
       
@@ -104,8 +91,6 @@
                   const numVotosElement = document.getElementById('numVotos');
                   if (numVotosElement) {
                       numVotosElement.textContent = data.total;
-                  } else {
-                      console.error('Elemento con id="numVotos" no encontrado.');
                   }
 
                   // Actualizar gráficos
@@ -258,7 +243,7 @@
                   },
                   options: {
                     responsive: true,
-                    aspectRatio: 3
+                    aspectRatio: 2
                   }
               });
           } else {

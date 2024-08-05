@@ -129,3 +129,14 @@ p {
   display: flex;
   flex-direction: row;
 }
+
+@media (max-width: 1250px) {
+  #carro1{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+  }
+}

@@ -1,7 +1,7 @@
 *{
     margin: 0;
-    --voto5:#3dafb7;
-    --voto4:#6fb96a;
+    --voto4:#3dafb7;
+    --voto5:#6fb96a;
     --voto3:#fbe23d;
     --voto2:#f4911a;
     --voto1:#e0435a;
@@ -14,7 +14,7 @@ body{
     /* justify-content: center; */
     align-items: center;
     /* background:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);; */
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #6EACDA;
     transition: all 0.3s ease;
 }
 
@@ -30,6 +30,7 @@ button{
     gap: 20px;
     width: auto;
     margin-top: 30vh;
+    flex-wrap: wrap;
 }
 
 .conEnviar{
@@ -122,4 +123,46 @@ form{
 
 .c-cancel{
     background-color: #e0435a;
+}
+
+@media (max-width: 1250px) {
+    .reacciones{
+        width: 150px;
+    }
+
+    #enviarVoto{
+        width: 100px;
+    }
+}
+
+@media (max-width: 910px) {
+    .reacciones{
+        width: 125px;
+    }
+
+    #enviarVoto{
+        width: 100px;
+    }
+}
+
+@media (max-width: 780px) {
+    .reacciones{
+        width: 100px;
+        margin: 20px;
+    }
+
+    .conReacciones{
+        align-content: center;
+        justify-content: space-around;
+    }
+
+    #enviarVoto{
+        width: 100px;
+    }
+}
+
+@media (max-width: 780px){
+    #enviarVoto{
+        margin-top: 50px;
+    }
 }
