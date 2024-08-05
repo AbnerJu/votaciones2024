@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(-60deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-size: 400% 400%;
+    animation: mov-back 5s ease infinite;
+}
+
+@keyframes mov-back{
+    0%{
+        background-position: 0% 50%;
+    }
+    30%{
+        background-position: 100% 70%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+#conPrincipal{
+    width: 40vh;
+    height: 60vh;
+    background: linear-gradient(to left,#fff,rgba(53, 114, 239,0.1));
+    background-color: aliceblue;
+    gap: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(53, 114, 239,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.40);
+    flex-direction: column;
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#imgInicio{
+    width: 50%;
+}
+
+.conContenidos{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inpt1{
+    width: 100%;
+    height: 20px;
+    border-radius: 15px;
+    border: none;
+    padding: 10px;
+    outline: 2px solid #3572EF;
+    border: 0;
+    outline-offset: 3px;
+    transition: all ease-in 0.1s;
+}
+
+.inpt1:focus{
+    outline-offset: 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tituloVentana{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.txtBtnVen{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.con-botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.btn-add {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 15px;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    position: relative;
+    flex-direction: row-reverse;
+    font-size: 0.8rem;
+}
+
+.btn-add:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.btn-regresar {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 20px;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    position: relative;
+    flex-direction: row-reverse;
+}
+
+.btn-regresar:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+.c-titulo{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.c-texto{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.add{
+    filter: invert(1);
+    width: 25px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 0.8rem;
+}

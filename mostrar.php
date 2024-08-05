@@ -36,7 +36,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="mostrar_carreras.php">Carreras</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="agregar_carrera.php">Agregar Carrera</a></li>
               </ul>
             </li>
           </ul>
