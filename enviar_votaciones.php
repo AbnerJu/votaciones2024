@@ -1,17 +1,10 @@
 <?php
     session_start();
-    // if(isset($_POST['codigoPersona'])){
-    //     $codigoPersona = $_POST['codigoPersona'];
-    // }
-
-    // if(isset($_POST['puntuacion'])){
-    //     $puntuacion = $_POST['puntuacion'];
-    // }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Verificamos si se ha enviado el parámetro 'codigo'
+        // Verificamos si se ha enviado el parámetro "codigo"
         if (isset($_POST['codigo'])  && isset($_POST['puntuacion'])) {
-            // Recibimos el código enviado desde JavaScript
+            // Recibimos el código enviado
             $codigo = $_POST['codigo'];
             $puntuacion = $_POST['puntuacion'];
             $carrera = $_SESSION['carrera'];
@@ -23,13 +16,13 @@
 
             $response = array(
                 'success' => true,
-                'message' => 'Código recibido correctamente: ' . $codigo
+                'message' => 'Código recibido: ' . $codigo
             );
     
             header('Content-Type: application/json');
             echo json_encode($response);
         } else {
-            // Si no se recibió el parámetro 'codigo'
+            // Si no se recibió 'codigo'
             $response = array(
                 'success' => false,
                 'message' => 'No se recibió el código.'

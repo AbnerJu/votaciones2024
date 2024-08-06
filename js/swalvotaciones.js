@@ -29,6 +29,8 @@ enviar.addEventListener('click', ()=>{
                 body: formData
             })
 
+            //respuestas del servidor
+
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al enviar el código.');
@@ -37,7 +39,6 @@ enviar.addEventListener('click', ()=>{
             })
             .then(data => {
                 console.log('Respuesta del servidor:', data);
-                // Aquí puedes manejar la respuesta del servidor si es necesario
                 Swal.fire({
                     title: 'Código enviado',
                     icon: 'success',

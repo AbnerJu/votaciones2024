@@ -102,7 +102,7 @@
                   if (numVotosElement) {
                       numVotosElement.textContent = data.total;
                   } else {
-                      console.error('Elemento con id="numVotos" no encontrado.');
+                      console.error('No existe "numVotos"');
                   }
 
                   // Actualizar gráficos

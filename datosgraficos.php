@@ -33,7 +33,7 @@
 
     $respuesta = [
         'total' => $datosTotal,
-        'votos' => [$datos5[0], $datos4[0], $datos3[0], $datos2[0], $datos1[0]]
+        'votos' => [$datos5, $datos4, $datos3, $datos2, $datos1]
     ];
 
     echo json_encode($respuesta);
