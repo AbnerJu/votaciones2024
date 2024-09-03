@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id = "conPrincipal">
-    <img src="images/authentication-2-99.png" id="imgInicio">
+    <img src="images/Login.png" id="imgInicio">
             <div class="conContenidos">
                 <h1>¡Bienvenido!</h1>
                 <br>

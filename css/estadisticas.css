@@ -7,8 +7,8 @@
 :root {
     --accent-color: #fff;
     --gradient-color: #FBFBFB;
-    --col1:#a1c4fd;
-    --col2:#c2e9fb;
+    --col1:#ff2323;
+    --col2:#ff5757;
 
 }
 
@@ -23,7 +23,7 @@ body{
     flex-wrap: wrap;
     position: relative;
     padding: 20px;
-    background: linear-gradient(-120deg,#a1c4fd,#c2e9fb);
+    background: linear-gradient(-120deg,#ff2323,#ff5757);
     z-index: 1;
     background-size: 400% 400%;
     animation: mov-back 5s ease infinite;
@@ -110,7 +110,7 @@ p {
 }
 
 .numVotos{
-  color: rgb(36, 113, 201);
+  color:#b10303;
 }
 
 .canva1{
@@ -139,4 +139,68 @@ p {
     align-content: center;
     justify-content: space-around;
   }
+}
+
+.creditos {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+	display: flex;
+  justify-content: center;
+	width: 450px;
+	height: 50px;
+	font-size: 20px;
+	line-height: 40px;
+	margin: -15px;
+	overflow: hidden;
+}
+
+.c-fijo {
+	list-style: none;
+	padding-left: 10px;
+	animation: cambiar2 9s infinite;
+}
+
+.c-fijo, .texto-creditos{
+	margin: 0;
+}
+
+.texto-creditos{
+  color: #111;
+  font-size: 20px;
+}
+
+.c-cambio{
+  color: #ff2323;
+}
+
+@keyframes cambiar2 {
+	
+	0%{ margin-top: 0;}
+	10%{ margin-top: 0;}
+
+  20%{ margin-top: -40px;}
+	30%{ margin-top: -40px;}
+  
+	40% {margin-top: -80px;}
+	50% {margin-top: -80px;}
+	
+	60% {margin-top: -120px;}
+	70% {margin-top: -120px;}
+	
+	80% {margin-top: -80px;}
+	90% {margin-top: -40px;}
+	
+	100% {margin-top: 0;}
+}
+
+.log-cetach{
+  width: 200px;
+}
+
+.logo-xp img{
+  width: 75px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }

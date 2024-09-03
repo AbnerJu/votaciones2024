@@ -35,7 +35,7 @@
     background-size: 400% 400%;
     position: relative;
     gap: 10px;
-    border: 1px solid #008bf8;
+    border: 1px solid #ff2323;
 }
 
 .card:hover{
@@ -45,7 +45,7 @@
 }
 
 .navbar{
-    background: linear-gradient(-120deg,#a1c4fd,#c2e9fb);
+    background: linear-gradient(-120deg,#ff2323,#ff5757);
     padding: 20px;
 }
 
@@ -90,7 +90,7 @@ a{
 }
 
 .num-total{
-    color: #008bf8;
+    color: #ff2323;
 }
 
 .me-gusta{
@@ -109,6 +109,13 @@ a{
 }
 
 .numVotos{
-    color: rgb(36, 113, 201);
+    color: #b10303;
     font-size: 3rem;
+}
+
+.logo-xp img{
+    width: 75px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }

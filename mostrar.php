@@ -41,7 +41,7 @@
             </li>
           </ul>
           <div class="d-flex flex-grow-1 justify-content-center">
-            <a class="navbar-brand text-center fs-2" href="mostrar.php">Estadísticas</a>
+            <a class="navbar-brand text-center fs-2" href="mostrar.php"><img src="images/CETACH.png" class="log-cetach"></a>
           </div>
             <a href="sis_votacion.php" class="btn btn-dark btn-custom">Votaciones</a>
         </div>
@@ -275,5 +275,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="js/administrar.js"></script>
+
+    <div class="creditos">
+			  <p class="texto-creditos">Desarrollado por:</p>
+		<ul class="c-fijo">
+            <li class="c-cambio">6to.Informatica</li>
+            <li class="c-cambio">Abner Jutzuy</li>
+            <li class="c-cambio">Jonhatan Orellana</li>
+            <li class="c-cambio">Danny Gil</li>
+		</ul>
+	</div>
+
+    <div class="logo-xp">
+        <img src="images/LOGO.png">
+    </div>
 </body>
 </html>

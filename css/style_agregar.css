@@ -7,7 +7,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background:linear-gradient(-60deg, #a1c4fd 0%, #c2e9fb 100%);
+    background:linear-gradient(-60deg, #ff5757 0%, #ff9494 100%);
     background-size: 400% 400%;
     animation: mov-back 5s ease infinite;
 }
@@ -30,11 +30,11 @@ body{
 #conPrincipal{
     width: 40vh;
     height: 60vh;
-    background: linear-gradient(to left,#fff,rgba(53, 114, 239,0.1));
+    background: linear-gradient(to left,#fff,rgba(255, 141, 141, 0.397));
     background-color: aliceblue;
     gap: 20px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgba(53, 114, 239,0.9);
+    color: #ff5757;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +76,7 @@ form{
     border-radius: 15px;
     border: none;
     padding: 10px;
-    outline: 2px solid #3572EF;
+    outline: 2px solid #f00000;
     border: 0;
     outline-offset: 3px;
     transition: all ease-in 0.1s;
@@ -84,7 +84,7 @@ form{
 
 .inpt1:focus{
     outline-offset: 5px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #fff0f0;
 }
 
 .tituloVentana{
@@ -104,7 +104,7 @@ form{
 }
 
 .btn-add {
-    --primary-color: #645bff;
+    --primary-color: #f00000;
     --secondary-color: #fff;
     --hover-color: #111;
     box-sizing: border-box;
@@ -131,7 +131,7 @@ form{
 }
 
 .btn-regresar {
-    --primary-color: #645bff;
+    --primary-color: #f00000;
     --secondary-color: #fff;
     --hover-color: #111;
     box-sizing: border-box;
@@ -171,4 +171,11 @@ form{
 a{
     text-decoration: none;
     font-size: 0.8rem;
+}
+
+.logo-xp img{
+    width: 75px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }

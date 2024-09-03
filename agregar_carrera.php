@@ -16,7 +16,7 @@ if (isset($_GET['msj'])) {
 
 <body>
     <div id="conPrincipal">
-        <img src="images/user-interface-1-72.svg" id="imgInicio">
+        <img src="images/Upload.png" id="imgInicio">
         <div class="conContenidos">
             <h1>Agregar Carrera</h1>
             <br>
@@ -86,6 +86,10 @@ if (isset($_GET['msj'])) {
             });
         }
     </script>
+
+    <div class="logo-xp">
+        <img src="images/LOGO.png">
+    </div>
 </body>
 
 </html>

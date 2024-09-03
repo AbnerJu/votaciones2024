@@ -41,5 +41,15 @@
     </div>
     <script src="js/swalvotaciones.js"></script>
     <script src="js/reacciones.js"></script>
+
+    <div class="creditos">
+			  <p class="texto-creditos">Desarrollado por:</p>
+		<ul class="c-fijo">
+            <li class="c-cambio">6to.Informatica</li>
+            <li class="c-cambio">Abner Jutzuy</li>
+            <li class="c-cambio">Jonhatan Orellana</li>
+            <li class="c-cambio">Danny Gil</li>
+		</ul>
+	</div>
 </body>
 </html>
