@@ -8,12 +8,11 @@ function iniciarContador() {
     const botonEnviar = document.getElementById('enviarVoto');
     let contador = 10;
 
-    // Deshabilitar el botón
+
     botonEnviar.disabled = true;
 
-    // Mostrar el contador en una ventana emergente
     Swal.fire({
-        title: 'Por favor, espera...',
+        title: 'Voto enviado',
         html: `Puedes enviar otro voto en <b>${contador}</b> segundos.`,
         timer: contador * 1000,
         timerProgressBar: true,
@@ -29,17 +28,17 @@ function iniciarContador() {
             clearInterval();
         }
     }).then(() => {
-        // Habilitar el botón después de que el contador termine
+
         botonEnviar.disabled = false;
     });
 }
 
-// Evento para enviar el voto
+
 document.getElementById('enviarVoto').addEventListener('click', () => {
     const formData = new FormData();
     formData.append('puntuacion', document.getElementById('voto').value);
 
-    // Enviar la votación al servidor usando Fetch API
+
     fetch('enviar_votaciones.php', {
         method: 'POST',
         body: formData
@@ -65,7 +64,7 @@ document.getElementById('enviarVoto').addEventListener('click', () => {
         Swal.fire({
             title: 'Error',
             icon: 'error',
-            text: 'Hubo un error al enviar el voto.'
+            text: 'Selecciona una reaccion.'
         });
     });
 });
